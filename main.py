@@ -1,13 +1,12 @@
 import translator as tr
 
 t = tr.Translator()
-
+t.loadDictionary("dictionary.txt")
 
 while(True):
 
     t.printMenu()
 
-    t.loadDictionary("dictionary.txt")
 
     txtIn = input()
 
@@ -17,10 +16,27 @@ while(True):
         print("Che parola vuoi aggiungere?")
         txtIn = input()
         t.handleAdd(txtIn)
-        pass
+        print("Aggiunta!")
+        continue
+
     if int(txtIn) == 2:
-        pass
+        print("Che parola vuoi tradurre?")
+        txtIn = input()
+        trad = t.handleTranslate(txtIn)
+        print(trad)
+        continue
+
     if int(txtIn) == 3:
-        pass
+        print("Che parola vuoi tradurre?")
+        txtIn = input()
+        tradWild = t.handleWildCard(txtIn)
+        print(tradWild)
+        continue
+
     if int(txtIn) == 4:
+        print("Dizionario completo:\n")
+        t.printDictionary()
+        continue
+
+    if int(txtIn) == 5:
         break
